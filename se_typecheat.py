@@ -8,3 +8,7 @@ driverPath = os.path.abspath('chromedriver')
 driver = webdriver.Chrome(driverPath)
 driver.get('https://play.typeracer.com/')
 
+driver.implicitly_wait(10)
+
+raceButton = driver.find_element(By.LINK_TEXT, 'Enter a Typing Race')
+raceButton.click()
