@@ -12,3 +12,5 @@ driver.implicitly_wait(10)
 
 raceButton = driver.find_element(By.LINK_TEXT, 'Enter a Typing Race')
 raceButton.click()
+
+
