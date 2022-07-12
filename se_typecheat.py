@@ -26,7 +26,7 @@ while True:
     if gameStatus.text == 'The race is on! Type the text below:':
         for word in ptWords:
             textInput.send_keys(word + ' ')
-            driver.implicitly_wait(5)
+            time.sleep(0.5)
     elif gameStatus.text == 'The race has ended.' or 'You finished' in gameStatus.text:
         break
         
