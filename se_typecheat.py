@@ -14,5 +14,20 @@ raceButton = driver.find_element(By.LINK_TEXT, 'Enter a Typing Race')
 raceButton.click()
 
 promptText = (driver.find_element(By.CLASS_NAME, 'inputPanel')).text
+print(promptText)
+
+ptWords = promptText.split()
+
+textInput = driver.find_element(By.CLASS_NAME, 'txtInput')
+
+gameStatus = driver.find_element(By.CLASS_NAME, 'gameStatusLabel')
+
+while True:
+    if gameStatus.text == 'The race is on! Type the text below:':
+        for word in ptWords:
+            textInput.send_keys(word + ' ')
+            driver.implicitly_wait(5)
+        
+    
 
 
