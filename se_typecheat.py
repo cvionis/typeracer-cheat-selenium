@@ -16,7 +16,7 @@ raceButton.click()
 promptText = (driver.find_element(By.CLASS_NAME, 'inputPanel')).text
 
 # Remove extra string following prompt text ('change display format')
-print(promptText.replace('change display format', ''))
+print('\n' + promptText.replace('change display format', ''))
 
 ptWords = promptText.split()
 
