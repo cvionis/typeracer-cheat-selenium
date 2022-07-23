@@ -4,33 +4,32 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
-driverPath = os.path.abspath('chromedriver')
-driver = webdriver.Chrome(driverPath)
+driver_path = os.path.abspath('chromedriver')
+driver = webdriver.Chrome(driver_path)
 driver.get('https://play.typeracer.com/')
 
 driver.implicitly_wait(10)
 
-raceButton = driver.find_element(By.LINK_TEXT, 'Enter a Typing Race')
-raceButton.click()
+race_button = driver.find_element(By.LINK_TEXT, 'Enter a Typing Race')
+race_button.click()
 
-promptText = (driver.find_element(By.CLASS_NAME, 'inputPanel')).text
+prompt_text = (driver.find_element(By.CLASS_NAME, 'inputPanel')).text
 
-# Remove extra string following prompt text ('change display format')
-print('\n' + promptText.replace('change display format', ''))
+# remove extra string following prompt text ('change display format')
+print('\n' + prompt_text.replace('change display format', ''))
 
-ptWords = promptText.split()
+pt_words = prompt_text.split()
 
-textInput = driver.find_element(By.CLASS_NAME, 'txtInput')
-
-gameStatus = driver.find_element(By.CLASS_NAME, 'gameStatusLabel')
+text_input = driver.find_element(By.CLASS_NAME, 'txtInput')
+game_status = driver.find_element(By.CLASS_NAME, 'gameStatusLabel')
 
 try:
     while True:
-        if gameStatus.text == 'The race is on! Type the text below:':
-            for word in ptWords:
-                textInput.send_keys(word + ' ')
+        if game_status.text == 'The race is on! Type the text below:':
+            for word in pt_words:
+                text_input.send_keys(word + ' ')
                 time.sleep(0.25)
-        if gameStatus.text == 'The race has ended.' or 'You finished' in gameStatus.text:
+        if game_status.text == 'The race has ended.' or 'You finished' in game_status.text:
             break
 except:
     driver.quit()
