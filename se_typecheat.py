@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
-delay = float(input('Enter a typing delay for the script (>= 0):\n> '))
+delay = float(input('Enter a typing delay for the script:\n> '))
 
 driver_path = os.path.abspath('chromedriver')
 driver = webdriver.Chrome(driver_path)
