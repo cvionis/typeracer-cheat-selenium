@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
+wpm_input = input('Enter a typing speed for the script:\n> ')
+
 driver_path = os.path.abspath('chromedriver')
 driver = webdriver.Chrome(driver_path)
 driver.get('https://play.typeracer.com/')
