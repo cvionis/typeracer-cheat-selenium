@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
-wpm_input = input('Enter a typing speed for the script:\n> ')
+delay = float(input('Enter a typing delay for the script (>= 0):\n> '))
 
 driver_path = os.path.abspath('chromedriver')
 driver = webdriver.Chrome(driver_path)
@@ -30,7 +30,7 @@ try:
         if game_status.text == 'The race is on! Type the text below:':
             for word in pt_words:
                 text_input.send_keys(word + ' ')
-                time.sleep(0.25)
+                time.sleep(delay)
         if game_status.text == 'The race has ended.' or 'You finished' in game_status.text:
             break
 except:
